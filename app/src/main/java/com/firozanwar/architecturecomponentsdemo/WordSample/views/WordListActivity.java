@@ -23,6 +23,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
+/**
+ * This Word Sample demonstrate the architecture component using ViewMode,
+ * LiveData & Room DB along with repository for single source of data.
+ */
 public class WordListActivity extends AppCompatActivity {
 
     private WordViewModel mWordViewModel;

@@ -36,4 +36,13 @@ dependencies {
     // Lifecycle components
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$rootProject.archLifecycleVersion"
+
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.3.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
+
 }

@@ -1,18 +1,22 @@
 package com.firozanwar.architecturecomponentsdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import com.firozanwar.architecturecomponentsdemo.HerosListingSample.HerosListingActivity;
+import com.firozanwar.architecturecomponentsdemo.WordSample.views.WordListActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    Button btnWordSample;
+    Button btnHeroListingSample;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,35 +25,23 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        btnWordSample = findViewById(R.id.btnWordSample);
+        btnWordSample.setOnClickListener(this);
+
+        btnHeroListingSample = findViewById(R.id.btnHeroListingSample);
+        btnHeroListingSample.setOnClickListener(this);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnWordSample:
+                startActivity(new Intent(MainActivity.this, WordListActivity.class));
+                break;
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.btnHeroListingSample:
+                startActivity(new Intent(MainActivity.this, HerosListingActivity.class));
+                break;
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }
